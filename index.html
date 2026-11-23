@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доставка местной воды</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">💧 ВилюйВода</div>
+      <button type="button" class="btn-outline" id="openContactsBtn">Связаться</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Первый экран -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <h1>Доставляем<br>местную воду</h1>
+          <p class="subtitle">Питьевая • Техническая</p>
+          <a href="#order-section" class="btn-primary">Заказать</a>
+        </div>
+        <div class="hero-art">
+          <svg viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 220C80 140 130 60 220 70C270 75 295 115 265 135C240 150 215 125 235 105C200 100 165 145 195 185C225 225 310 210 380 175V250H20V220Z" fill="url(#waveGrad)"/>
+            <path d="M60 230C120 170 160 110 235 115C265 117 280 142 260 155C242 166 226 148 238 134C212 132 190 165 212 195C235 225 305 215 370 190" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+            <defs>
+              <linearGradient id="waveGrad" x1="20" y1="60" x2="380" y2="250" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0284c7"/>
+                <stop offset="0.6" stop-color="#38bdf8"/>
+                <stop offset="1" stop-color="#bae6fd"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок доверия -->
+    <section class="trust-section">
+      <div class="container">
+        <h2>Почему нам можно доверять?</h2>
+        <div class="cards-grid three-cols">
+          <div class="card">
+            <h3>Своевременная доставка</h3>
+            <p>Привозим воду в оговоренный день прямо до вашей бочки или емкости.</p>
+          </div>
+          <div class="card">
+            <h3>Проверенный источник</h3>
+            <p>Чистая питьевая вода и свежая техническая вода напрямую с реки Вилюй.</p>
+          </div>
+          <div class="card">
+            <h3>Честный объем</h3>
+            <p>Стандартная заливка — полная бочка 200 литров без недолива.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Виды воды и цены -->
+    <section class="water-types">
+      <div class="container">
+        <h2>Какая вода доставляется нашим клиентам</h2>
+        <div class="cards-grid two-cols">
+          <div class="card price-card">
+            <div class="badge">Для дома и готовки</div>
+            <h3>Питьевая вода</h3>
+            <p class="desc">Очищенная вода, подходящая для питья и приготовления пищи.</p>
+            <div class="price-row">
+              <span class="price">600 ₽</span>
+              <span class="volume">/ 1 бочка (200 л)</span>
+            </div>
+            <button type="button" class="btn-select" data-type="drinking">Выбрать питьевую</button>
+          </div>
+
+          <div class="card price-card">
+            <div class="badge badge-tech">С реки Вилюй</div>
+            <h3>Техническая вода</h3>
+            <p class="desc">Свежая речная вода с нашей реки Вилюй для бани, полива и бытовых нужд.</p>
+            <div class="price-row">
+              <span class="price">300 ₽</span>
+              <span class="volume">/ 1 бочка (200 л)</span>
+            </div>
+            <button type="button" class="btn-select" data-type="technical">Выбрать техническую</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Калькулятор и встроенная Яндекс Форма -->
+    <section class="order-section" id="order-section">
+      <div class="container">
+        <div class="order-box">
+          <h2>Оформить заявку на доставку</h2>
+
+          <div class="form-group">
+            <label for="waterType">Тип воды:</label>
+            <select id="waterType" name="waterType">
+              <option value="drinking" data-price="600">Питьевая (600 ₽ за 200 л)</option>
+              <option value="technical" data-price="300">Техническая — с реки Вилюй (300 ₽ за 200 л)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Количество бочек (по 200 л):</label>
+            <div class="counter">
+              <button type="button" id="minusBtn">−</button>
+              <span id="barrelCount">1</span>
+              <button type="button" id="plusBtn">+</button>
+            </div>
+          </div>
+
+          <div class="summary-box">
+            <div>Общий объем: <strong id="totalLiters">200 л</strong></div>
+            <div>Итого к оплате: <strong id="totalPrice">600 ₽</strong></div>
+          </div>
+
+          <div class="yandex-form-wrap">
+            <script src="https://forms.yandex.ru/_static/embed.js"></script>
+            <iframe
+              id="yandexFormIframe"
+              src="https://forms.yandex.ru/u/6b03e270aeb3525e7973b0cf?iframe=1"
+              frameborder="0"
+              name="ya-form-6b03e270aeb3525e7973b0cf"
+              width="650"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Доставка местной воды. Питьевая и техническая вода с реки Вилюй.</p>
+    </div>
+  </footer>
+
+  <!-- Модальное окно контактов -->
+  <div class="modal hidden" id="contactsModal">
+    <div class="modal-content">
+      <button type="button" class="close-modal" id="closeModalBtn">×</button>
+      <h3>Связаться с водовозом</h3>
+      <p>Заказы принимаются по телефону и в мессенджерах:</p>
+      <p class="phone-big">+7 (900) 000-00-00</p>
+      <p class="modal-note">Ежедневно с 08:00 до 20:00</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
